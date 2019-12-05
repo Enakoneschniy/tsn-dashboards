@@ -1,4 +1,5 @@
-
+import path from 'path'
+import SpritesmithPlugin from 'webpack-spritesmith'
 export default {
   mode: 'universal',
   /*
@@ -23,19 +24,22 @@ export default {
   ** Global CSS
   */
   css: [
+    'node_modules/slick-carousel/slick/slick.css',
     'assets/style.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: './plugins/slick.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/router'
   ],
   /*
   ** Nuxt.js modules
@@ -54,6 +58,21 @@ export default {
   ** Build configuration
   */
   build: {
+    plugins: [
+      new SpritesmithPlugin({
+        src: {
+          cwd: path.resolve(__dirname, 'assets/ico'),
+          glob: '*.png'
+        },
+        target: {
+          image: path.resolve(__dirname, 'assets/sprites/sprite.png'),
+          css: path.resolve(__dirname, 'assets/sprites/sprite.scss')
+        },
+        apiOptions: {
+          cssImageRef: '~sprite.png'
+        }
+      })
+    ],
     /*
     ** You can extend webpack config here
     */
