@@ -13,10 +13,15 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "chart.js": "^2.9.3",
+    "echarts": "^4.5.0",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.0",
     "nuxt": "^2.0.0",
     "sass-loader": "^8.0.0",
+    "vue-chartjs": "^3.5.0",
+    "vue-funnel-graph-js": "^0.1.6",
+    "vue-graph": "^0.8.7",
     "vue-slick": "^1.1.15"
   },
   "devDependencies": {

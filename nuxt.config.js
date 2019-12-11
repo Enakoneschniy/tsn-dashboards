@@ -31,7 +31,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: './plugins/slick.js', ssr: false }
+    { src: './plugins/slick.js', ssr: false },
+    { src: './plugins/echarts.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
