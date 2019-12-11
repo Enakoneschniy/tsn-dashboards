@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="user of users" :key="user.id">
+      <li v-for="user of users">
         <nuxt-link :to="{ name: 'user', params: { id: user.id, lang: 'ru' }}">
           {{ user.name }}
         </nuxt-link>
@@ -11,16 +11,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'Users',
-  async asyncData ({ $axios }) {
-    let users = []
+  computed: mapGetters({
+    users: 'users/users'
+  }),
+  async fetch ({ store, error }) {
     try {
-      users = await $axios.$get('https://next.json-generator.com/api/json/get/EynBvzGpv')
+      if (store.getters['users/users'].length === 0) {
+        await store.dispatch('users/loadUsers')
+      }
     } catch (e) {
-      console.warn(e.response.data)
+      error(e)
     }
-    return { users }
   }
 }
 </script>
