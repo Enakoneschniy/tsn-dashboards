@@ -32,7 +32,8 @@ export default {
   */
   plugins: [
     { src: './plugins/slick.js', ssr: false },
-    { src: './plugins/echarts.js', ssr: false }
+    { src: './plugins/echarts.js', ssr: false },
+    { src: './plugins/validate.js', ssr: true }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,11 +55,16 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    host: 'localhost',
+    port: '8080'
   },
   /*
   ** Build configuration
   */
   build: {
+    transpile: [
+      'vee-validate/dist/rules'
+    ],
     plugins: [
       new SpritesmithPlugin({
         src: {
