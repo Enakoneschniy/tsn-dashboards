@@ -2,6 +2,9 @@ import path from 'path'
 import SpritesmithPlugin from 'webpack-spritesmith'
 export default {
   mode: 'universal',
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Headers of the page
   */
@@ -48,7 +51,8 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
   ** Axios module configuration
@@ -57,6 +61,23 @@ export default {
   axios: {
     host: 'localhost',
     port: '8080'
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      home: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: 'accessToken' },
+          // user: { url: '/login', method: 'get', propertyName: '' },
+          user: false,
+          logout: false
+        },
+        tokenRequired: true
+      }
+    }
   },
   /*
   ** Build configuration

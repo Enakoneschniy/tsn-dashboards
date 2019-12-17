@@ -5,13 +5,15 @@
   "author": "Eugene Nakoneschniy",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "npm run api & nuxt",
+    "api": "json-server-auth --watch ./api/db.json --port 8080",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.3.6",
     "chart.js": "^2.9.3",
     "echarts": "^4.5.0",

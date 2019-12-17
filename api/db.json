@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$4TRAQoqyNcALpSeBppwDnu2bRySAVwXL7BUcvjl2sGOtXy2uYmrIK",
+      "first_name": "Olivier",
+      "last_name": "Monge",
+      "age": 32,
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "text": "jsjdsjdjsds sdkfsdkf"
+    }
+  ]
+}
