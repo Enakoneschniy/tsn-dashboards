@@ -50,7 +50,7 @@ export function createRouter () {
       },
       {
         name: 'home',
-        path: '/',
+        path: '/:lang?',
         component: Home
       }
     ]

@@ -28,6 +28,7 @@
 <script>
 export default {
   name: 'Test',
+  auth: false,
   data () {
     return {
       slickOptions: {

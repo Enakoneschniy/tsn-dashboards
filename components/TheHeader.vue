@@ -1,24 +1,31 @@
 <template>
   <header>
     Header
-    <nuxt-link :to="{ name: 'home' }" no-prefetch class="test">
+    <nuxt-link :to="{ name: 'home', params: { lang } }" no-prefetch class="test">
       Home
     </nuxt-link>
-    <nuxt-link :to="{ name: 'about' }" no-prefetch>
+    <nuxt-link :to="{ name: 'about', params: { lang } }" no-prefetch>
       About
     </nuxt-link>
-    <nuxt-link :to="{ name: 'users' }" no-prefetch>
+    <nuxt-link :to="{ name: 'users', params: { lang } }" no-prefetch>
       Users
     </nuxt-link>
-    <nuxt-link :to="{ name: 'test' }" no-prefetch>
+    <nuxt-link :to="{ name: 'test', params: { lang } }" no-prefetch>
       Test
     </nuxt-link>
+    <LocaleChanger />
   </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import LocaleChanger from './LocaleChanger'
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  components: { LocaleChanger },
+  computed: mapGetters({
+    lang: 'localization/locale'
+  })
 }
 </script>
 

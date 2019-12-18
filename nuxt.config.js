@@ -3,7 +3,7 @@ import SpritesmithPlugin from 'webpack-spritesmith'
 export default {
   mode: 'universal',
   router: {
-    middleware: ['auth']
+    middleware: ['i18n', 'auth']
   },
   /*
   ** Headers of the page
@@ -34,6 +34,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/i18n.js', ssr: true },
     { src: './plugins/slick.js', ssr: false },
     { src: './plugins/echarts.js', ssr: false },
     { src: './plugins/validate.js', ssr: true }

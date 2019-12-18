@@ -1,29 +1,12 @@
 <template>
   <div class='container'>
     <div>
-      <logo />
-      <h1 class='title'>
+      <h1 class="title">
         tsn-dashboards
       </h1>
-      <h2 class='subtitle'>
-        My best Nuxt.js project
+      <h2 class="subtitle">
+        {{ $t('helloMessage') }}
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
     <button @click.prevent="onAuth">
       Login
@@ -37,12 +20,8 @@
 </template>
 
 <script>
-import Logo from '../components/Logo.vue'
 
 export default {
-  components: {
-    Logo
-  },
   auth: false,
   async asyncData ({ $axios }) {
     const posts = []

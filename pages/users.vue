@@ -37,6 +37,7 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Users',
+  auth: false,
   data () {
     return {
       userData: {

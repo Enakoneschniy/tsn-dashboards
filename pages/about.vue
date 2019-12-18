@@ -32,6 +32,7 @@ import UserList from '../components/UserList'
 
 export default {
   name: 'About',
+  auth: false,
   components: { UserList },
   data () {
     return {
@@ -63,6 +64,9 @@ export default {
         isEdit: false
       }
     }
+  },
+  created () {
+    console.log(this.$t('helloMessage'))
   },
   methods: {
     onSave (user) {
